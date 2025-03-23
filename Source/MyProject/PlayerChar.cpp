@@ -6,7 +6,7 @@
 // Sets default values
 APlayerChar::APlayerChar()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	PlayerCamComp = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Cam"));
 	PlayerCamComp->SetupAttachment(GetMesh(), "head");
@@ -18,7 +18,7 @@ APlayerChar::APlayerChar()
 void APlayerChar::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -32,10 +32,10 @@ void APlayerChar::Tick(float DeltaTime)
 void APlayerChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerChar:: MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerChar:: MoveRight);
-	PlayerInputComponent->BindAxis("LookUp", this, &APlayerChar:: AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("Turn", this, &APlayerChar:: AddControllerYawInput);
+	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerChar::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerChar::MoveRight);
+	PlayerInputComponent->BindAxis("LookUp", this, &APlayerChar::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("Turn", this, &APlayerChar::AddControllerYawInput);
 }
 
 void APlayerChar::MoveForward(float axisValue)
